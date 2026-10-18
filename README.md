@@ -63,17 +63,50 @@ runaway/
 
 ## 🚀 Running the Project
 
-You can open the project directly in your browser or run a simple local static server:
+### Local Development
+
+You can run the project using the Vercel development server or any static HTTP server:
 
 ```bash
-# Option A: Open directly via file protocol
-# Double click index.html or open admin/login.html
+# Option A: Run via Vercel dev server (simulates clean URLs & headers)
+npx vercel dev
 
-# Option B: Run via any static HTTP server
+# Option B: Run via standard static HTTP server
 npx serve .
 # or
 python -m http.server 8080
+
+# Option C: Open directly via file protocol
+# Double click index.html or admin/login.html
 ```
 
-- **Customer Storefront**: `http://localhost:8080/index.html`
-- **Owner Operations**: `http://localhost:8080/admin/login.html` (Passcode: `runaway2026`)
+- **Customer Storefront**: `http://localhost:3000/` (or `http://localhost:8080/index.html`)
+- **Owner Operations**: `http://localhost:3000/admin/login` (Passcode: `runaway2026`)
+
+---
+
+## ⚡ Deploying to Vercel
+
+### Method 1: GitHub Integration (Recommended — 1-Click Automated CI/CD)
+
+1. Go to [vercel.com/new](https://vercel.com/new) and log in with your GitHub account.
+2. Under **"Import Git Repository"**, select **`Wondergasper/runaway`**.
+3. Configure Project Settings:
+   - **Framework Preset**: `Other`
+   - **Root Directory**: `./` (default)
+   - **Build Command**: *(leave empty)*
+   - **Output Directory**: `./` (default)
+4. Click **Deploy**.
+
+> **Note**: Once linked, every time you run `git push origin main`, Vercel will automatically trigger a new deployment and update your live site within seconds.
+
+### Method 2: Deploy via Vercel CLI
+
+```bash
+# First-time deploy (Preview)
+npx vercel
+
+# Production deploy
+npx vercel --prod
+```
+
