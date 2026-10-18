@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Owner Login — RUNAWAY</title>
+<meta name="theme-color" content="#070707" />
+<link rel="icon" type="image/svg+xml" href="../public/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./admin.css" />
+</head>
+<body>
+
+<div class="login-screen">
+  <div class="login-card">
+    <div class="login-brand">
+      <img src="../public/images/logo-runners.png" alt="RUNAWAY dual runner mark" />
+      <h1>RUNAWAY</h1>
+      <p>Owner Operations Portal</p>
+    </div>
+
+    <form class="login-form" id="loginForm">
+      <label>
+        Passcode
+        <input type="password" id="passcode" autocomplete="current-password" placeholder="Enter owner passcode" required autofocus />
+      </label>
+      <div class="login-err" id="loginErr"></div>
+      <button type="submit" class="btn btn-gold" id="loginBtn">
+        <span>Enter Console</span>
+      </button>
+    </form>
+
+    <div class="login-hint">
+      <p class="subtle">Default owner passcode: <strong class="gold">runaway2026</strong></p>
+      <p style="margin-top: .6rem;"><a href="../index.html" class="muted" style="text-decoration: underline; font-size: .75rem;">← Return to Storefront</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+// If already authenticated, redirect straight to dashboard
+if (sessionStorage.getItem("runaway_owner_session") === "active") {
+  window.location.replace("dashboard.html");
+}
+
+const form = document.getElementById("loginForm");
+const input = document.getElementById("passcode");
+const err = document.getElementById("loginErr");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const val = input.value.trim();
+  
+  // Verify passcode
+  if (val === "runaway2026" || val === "admin") {
+    err.textContent = "";
+    sessionStorage.setItem("runaway_owner_session", "active");
+    sessionStorage.setItem("runaway_owner_login_time", new Date().toISOString());
+    window.location.replace("dashboard.html");
+  } else {
+    err.textContent = "Invalid passcode. Please try again.";
+    input.value = "";
+    input.focus();
+    // Subtle shake animation
+    form.animate([
+      { transform: 'translateX(-6px)' },
+      { transform: 'translateX(6px)' },
+      { transform: 'translateX(-4px)' },
+      { transform: 'translateX(4px)' },
+      { transform: 'translateX(0)' }
+    ], { duration: 250, easing: 'ease-in-out' });
+  }
+});
+</script>
+</body>
+</html>

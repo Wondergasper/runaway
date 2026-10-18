@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Apex Training Shorts — RUNAWAY</title>
+<meta name="description" content="Apex Training Shorts — cut to move. Quiet luxury for the work before sunrise." />
+<meta name="theme-color" content="#070707" />
+<link rel="icon" type="image/svg+xml" href="../public/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body data-product-slug="apex-training-shorts">
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-mark">R</div>
+  <div class="loader-word">RUNAWAY</div>
+  <div class="loader-bar"><span></span></div>
+</div>
+<div class="aura" id="aura" aria-hidden="true"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">
+      <img src="../public/images/logo-runners.png" alt="" width="36" height="36" />
+      <span class="brand-word">RUNAWAY</span>
+    </a>
+    <nav class="desk-nav" aria-label="Primary">
+      <a href="../collection.html">Collection</a>
+      <a href="../index.html#craft">Craft</a>
+      <a href="../index.html#lookbook">Lookbook</a>
+      <a href="../about.html">The House</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="bagBtn" aria-label="Open bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M6 8h15l-1.5 9h-12z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="bag-count" id="bagCount" hidden>0</span>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="../collection.html">Collection</a>
+    <a href="../index.html#craft">Craft</a>
+    <a href="../index.html#lookbook">Lookbook</a>
+    <a href="../about.html">The House</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero" style="padding-bottom:2.5rem">
+    <div class="bg"><img src="../public/images/lifestyle-shorts.jpg" alt="" /></div>
+    <div class="inner wrap">
+      <p class="crumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../collection.html">Collection</a> &nbsp;/&nbsp; <b id="crumbName">…</b></p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="pdp" id="pdpRoot"></div>
+  </div>
+
+  <section class="xsell">
+    <div class="wrap">
+      <h2>Complete the kit</h2>
+      <div class="xsell-grid" id="xsellGrid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="brand-mini gold">RUNAWAY</p>
+      <p class="muted small">Performance apparel for athleticism, leisure, and luxury. Cut in black. Finished in gold.</p>
+    </div>
+    <div><p class="foot-h">House</p><a href="../about.html">The House</a><a href="../collection.html">Collection</a></div>
+    <div><p class="foot-h">Kit</p><a href="aether-compression-tee.html">Aether Tee</a><a href="apex-training-shorts.html">Apex Shorts</a><a href="velocity-skull-cap.html">Velocity Cap</a></div>
+    <div><p class="foot-h">Care</p><span>Cold wash, hang dry</span><span>Ships in 2–4 days</span><span>Free returns, 30 days</span></div>
+  </div>
+  <div class="foot-base"><span>© <span id="year"></span> Runaway</span><a href="#track-order" data-action="track-order" class="muted" style="color:var(--gold);margin:0 .6rem;">Track Order 📦</a><a href="../admin/login.html" class="muted" style="letter-spacing:.18em;text-transform:uppercase;">House Portal ↗</a><span>Athleticism · Leisure · Luxury</span></div>
+</footer>
+
+<div class="drawer-root" id="drawerRoot" aria-hidden="true">
+  <button class="drawer-veil" id="drawerVeil" aria-label="Close bag"></button>
+  <aside class="drawer" role="dialog" aria-label="Shopping bag">
+    <div class="drawer-drag-pill" aria-hidden="true"></div>
+    <div class="drawer-head"><p id="drawerTitle">Bag (0)</p><button class="icon-btn" id="drawerClose" aria-label="Close">✕</button></div>
+    <div class="drawer-body" id="drawerBody"></div>
+    <div class="drawer-foot" id="drawerFoot"></div>
+  </aside>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="../js/data.js"></script>
+<script src="../js/site.js"></script>
+<script src="../js/product.js"></script>
+</body>
+</html>

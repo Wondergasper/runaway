@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The House — RUNAWAY</title>
+<meta name="description" content="RUNAWAY house story: athleticism, leisure, luxury. Two runners. One mark." />
+<meta name="theme-color" content="#070707" />
+<link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-mark">R</div>
+  <div class="loader-word">RUNAWAY</div>
+  <div class="loader-bar"><span></span></div>
+</div>
+<div class="aura" id="aura" aria-hidden="true"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <img src="./public/images/logo-runners.png" alt="" width="36" height="36" />
+      <span class="brand-word">RUNAWAY</span>
+    </a>
+    <nav class="desk-nav" aria-label="Primary">
+      <a href="collection.html">Collection</a>
+      <a href="index.html#craft">Craft</a>
+      <a href="index.html#lookbook">Lookbook</a>
+      <a href="about.html" class="active">The House</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="bagBtn" aria-label="Open bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M6 8h15l-1.5 9h-12z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="bag-count" id="bagCount" hidden>0</span>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="collection.html">Collection</a>
+    <a href="index.html#craft">Craft</a>
+    <a href="index.html#lookbook">Lookbook</a>
+    <a href="about.html" class="active">The House</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="bg"><img src="./public/images/logo-r-lockup.jpg" alt="" /></div>
+    <div class="inner wrap">
+      <p class="eyebrow gold">The house</p>
+      <h1>Two runners.<br />One mark.</h1>
+      <p class="crumbs"><a href="index.html">Home</a> &nbsp;/&nbsp; <b>The House</b></p>
+    </div>
+  </section>
+
+  <section class="house wrap" style="padding-top:5rem">
+    <div class="house-text reveal">
+      <p class="eyebrow gold">Athleticism · Leisure · Luxury</p>
+      <h2>A kit for people who will not stay still.</h2>
+      <p class="muted">RUNAWAY started from a simple refusal: performance wear does not have to look like a billboard, and luxury does not have to sit on the couch. We design in black because it photographs at 5am. We finish in gold because the work deserves a metal, not a neon.</p>
+      <p class="muted">The dual runner is the house mark — two figures in motion, locked in a single stroke. You will find it on the chest, the thigh, the cap, and the woven hem label. The R monogram is the quiet twin, used where space is scarce.</p>
+      <div class="story-stats" style="margin-top:2rem">
+        <div><strong data-count="5">0</strong><span>am design hour</span></div>
+        <div><strong data-count="2">0</strong><span>house marks</span></div>
+        <div><strong data-count="1">0</strong><span>metal: gold</span></div>
+      </div>
+    </div>
+    <div class="house-media reveal tilt">
+      <img src="./public/images/logo-r-lockup.jpg" alt="RUNAWAY R monogram" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="pillars" style="padding-top:0">
+    <div class="wrap pillar-grid">
+      <article class="reveal"><h3>Materials</h3><p>Stretch knits with a dry hand. Moisture-wicking finishes. Ventilated mesh where heat builds. Silicone where grip is the point.</p></article>
+      <article class="reveal" style="--d:.12s"><h3>Make</h3><p>Raglan seams for a clean shoulder. Flatlock construction so nothing burns at mile twelve. Gold piping set, not printed.</p></article>
+      <article class="reveal" style="--d:.24s"><h3>Use</h3><p>Train. Travel. Walk the city in the same kit. Cold wash, hang dry. The gold will outlast the season.</p></article>
+    </div>
+    <div class="wrap reveal" style="margin-top:3rem">
+      <a class="btn btn-gold" href="collection.html"><span>Shop the collection</span></a>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="join-inner reveal">
+      <p class="brand-mini">RUNAWAY</p>
+      <h2>Join the list</h2>
+      <p class="muted">Drops, restocks, and night-run notes. No noise.</p>
+      <form id="joinForm" novalidate>
+        <input type="email" id="joinEmail" placeholder="Email" aria-label="Email" required />
+        <button class="btn btn-gold" type="submit"><span>Join</span></button>
+      </form>
+      <p class="join-msg" id="joinMsg" role="status"></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="brand-mini gold">RUNAWAY</p>
+      <p class="muted small">Performance apparel for athleticism, leisure, and luxury. Cut in black. Finished in gold.</p>
+    </div>
+    <div><p class="foot-h">House</p><a href="about.html">The House</a><a href="collection.html">Collection</a></div>
+    <div><p class="foot-h">Kit</p><a href="products/aether-compression-tee.html">Aether Tee</a><a href="products/apex-training-shorts.html">Apex Shorts</a><a href="products/velocity-skull-cap.html">Velocity Cap</a></div>
+    <div><p class="foot-h">Care</p><span>Cold wash, hang dry</span><span>Ships in 2–4 days</span><span>Free returns, 30 days</span></div>
+  </div>
+  <div class="foot-base"><span>© <span id="year"></span> Runaway</span><a href="#track-order" data-action="track-order" class="muted" style="color:var(--gold);margin:0 .6rem;">Track Order 📦</a><a href="admin/login.html" class="muted" style="letter-spacing:.18em;text-transform:uppercase;">House Portal ↗</a><span>Athleticism · Leisure · Luxury</span></div>
+</footer>
+
+<div class="drawer-root" id="drawerRoot" aria-hidden="true">
+  <button class="drawer-veil" id="drawerVeil" aria-label="Close bag"></button>
+  <aside class="drawer" role="dialog" aria-label="Shopping bag">
+    <div class="drawer-drag-pill" aria-hidden="true"></div>
+    <div class="drawer-head"><p id="drawerTitle">Bag (0)</p><button class="icon-btn" id="drawerClose" aria-label="Close">✕</button></div>
+    <div class="drawer-body" id="drawerBody"></div>
+    <div class="drawer-foot" id="drawerFoot"></div>
+  </aside>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="./js/data.js"></script>
+<script src="./js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Owner Dashboard — RUNAWAY</title>
+<meta name="theme-color" content="#070707" />
+<link rel="icon" type="image/svg+xml" href="../public/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./admin.css" />
+</head>
+<body>
+
+<!-- ══════════ OWNER HEADER ══════════ -->
+<header class="dash-header">
+  <div class="dash-head-inner">
+    <div class="dash-brand">
+      <img src="../public/images/logo-runners.png" alt="RUNAWAY dual runner mark" />
+      <span class="dash-title">RUNAWAY</span>
+      <span class="dash-badge">Owner Console</span>
+    </div>
+    <div class="dash-actions">
+      <a href="../index.html" class="btn btn-ghost btn-sm" title="View Storefront">
+        <span>Storefront ↗</span>
+      </a>
+      <button class="btn btn-ghost btn-sm" id="seedBtn" title="Seed 4 demo orders for preview">
+        <span>+ Demo Orders</span>
+      </button>
+      <button class="btn btn-ghost btn-sm btn-danger" id="logoutBtn" title="Exit owner console">
+        <span>Logout</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ MAIN DASHBOARD ══════════ -->
+<main class="dash-main">
+
+  <!-- ── KPI METRICS ── -->
+  <section class="stats-grid">
+    <article class="stat-card accent">
+      <span class="stat-label">Gross Revenue</span>
+      <span class="stat-val tabular" id="statRevenue">₦0</span>
+      <span class="stat-sub">From non-cancelled orders</span>
+    </article>
+    <article class="stat-card">
+      <span class="stat-label">Total Orders</span>
+      <span class="stat-val tabular" id="statOrders">0</span>
+      <span class="stat-sub">Lifetime orders placed</span>
+    </article>
+    <article class="stat-card">
+      <span class="stat-label">Average Order Value</span>
+      <span class="stat-val tabular" id="statAOV">₦0</span>
+      <span class="stat-sub">Revenue per order</span>
+    </article>
+    <article class="stat-card">
+      <span class="stat-label">Pending Fulfillment</span>
+      <span class="stat-val tabular gold" id="statPending">0</span>
+      <span class="stat-sub">Awaiting kit dispatch</span>
+    </article>
+  </section>
+
+  <!-- ── ORDERS MANAGEMENT PANEL ── -->
+  <section class="panel">
+    <div class="panel-head">
+      <div>
+        <h2 class="panel-title">Customer Orders</h2>
+        <p class="subtle" style="font-size: .75rem; margin-top: .2rem;">Real-time orders placed through the storefront bag & checkout.</p>
+      </div>
+      <div class="panel-toolbar">
+        <div class="search-box">
+          <input type="text" id="orderSearch" placeholder="Search orders, names, emails..." />
+        </div>
+        <div class="panel-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="pending">Pending</button>
+          <button class="filter-btn" data-filter="fulfilled">Fulfilled</button>
+          <button class="filter-btn" data-filter="cancelled">Cancelled</button>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="exportCsvBtn" title="Export orders to CSV">
+          <span>Export CSV ↗</span>
+        </button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Kit Items</th>
+            <th>Total</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="ordersTableBody">
+          <!-- Rendered dynamically by admin.js -->
+        </tbody>
+      </table>
+    </div>
+    <div style="padding: 1rem 1.5rem; display: flex; justify-content: flex-end; border-top: 1px solid var(--line);">
+      <button class="btn btn-danger btn-sm" id="clearBtn">
+        <span>Clear All Orders</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ── INVENTORY & KIT OVERVIEW ── -->
+  <section class="panel">
+    <div class="panel-head">
+      <div>
+        <h2 class="panel-title">Collection Inventory</h2>
+        <p class="subtle" style="font-size: .75rem; margin-top: .2rem;">Active performance pieces published across the storefront catalogue.</p>
+      </div>
+      <div style="display:flex;gap:.5rem;align-items:center;">
+        <button class="btn btn-ghost btn-sm" id="restoreCoreBtn" title="Restore any hidden standard collection pieces">
+          <span>Restore Core Kit ↺</span>
+        </button>
+        <button class="btn btn-gold btn-sm" id="openUploadBtn">
+          <span>+ Upload New Piece</span>
+        </button>
+      </div>
+    </div>
+    <div class="inventory-grid" id="inventoryGrid">
+      <!-- Rendered dynamically from data.js + custom products -->
+    </div>
+  </section>
+
+  <!-- ── TOP SELLING PIECES (ANALYTICS) ── -->
+  <section class="panel">
+    <div class="panel-head">
+      <div>
+        <h2 class="panel-title">Top Selling Pieces</h2>
+        <p class="subtle" style="font-size: .75rem; margin-top: .2rem;">SKU performance ranked by customer demand & gross revenue.</p>
+      </div>
+    </div>
+    <div class="top-sellers-grid" id="topSellersGrid">
+      <!-- Rendered dynamically -->
+    </div>
+  </section>
+
+  <!-- ── STOREFRONT ANNOUNCEMENT BANNER ── -->
+  <section class="panel">
+    <div class="panel-head">
+      <div>
+        <h2 class="panel-title">Storefront Announcement Banner</h2>
+        <p class="subtle" style="font-size: .75rem; margin-top: .2rem;">Configure the high-profile ticker banner displayed across the customer storefront.</p>
+      </div>
+    </div>
+    <div style="padding: 1.5rem;">
+      <form id="announceForm" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
+        <input type="text" id="announceInput" placeholder="e.g. COMPLIMENTARY SHIPPING NATIONWIDE ON ORDERS OVER ₦250,000 · DROP 01 LIVE" style="flex:1;min-height:2.8rem;background:var(--surface);border:1px solid var(--line);color:var(--fg);padding:0 1rem;font-size:.85rem;outline:none;" />
+        <button type="submit" class="btn btn-gold btn-sm"><span>Update Marquee</span></button>
+        <button type="button" class="btn btn-ghost btn-sm" id="clearAnnounceBtn"><span>Reset to Default</span></button>
+      </form>
+      <p id="announceStatus" style="font-size:.78rem;color:var(--gold);margin-top:.6rem;min-height:1rem;"></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════ PRODUCT UPLOAD MODAL ══════════ -->
+<div class="admin-modal" id="productModal" aria-hidden="true">
+  <div class="admin-modal-backdrop" id="closeProductBackdrop"></div>
+  <div class="admin-modal-card" role="dialog" aria-modal="true" aria-label="Upload Collection Piece">
+    <div class="admin-modal-head">
+      <div>
+        <h3 class="gold" id="productModalTitle">Upload Collection Piece</h3>
+        <p class="subtle" id="productModalSub" style="font-size:.75rem;margin-top:.2rem;">Publish a new performance piece to the storefront catalogue.</p>
+      </div>
+      <button class="icon-btn" id="closeProductBtn" aria-label="Close modal">✕</button>
+    </div>
+    
+    <form class="product-form" id="productForm">
+      <input type="hidden" id="pEditingSlug" value="" />
+      <div class="form-row-2">
+        <label>
+          Piece Name *
+          <input type="text" id="pName" placeholder="e.g. Onyx Windbreaker Shell" required />
+        </label>
+        <label>
+          Category *
+          <select id="pCategory" required>
+            <option value="Tops">Tops</option>
+            <option value="Bottoms">Bottoms</option>
+            <option value="Outerwear">Outerwear</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Footwear">Footwear</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="form-row-2">
+        <label>
+          Price in Naira (₦) *
+          <input type="number" id="pPrice" placeholder="e.g. 165000" min="1000" step="500" required />
+        </label>
+        <label>
+          Tagline
+          <input type="text" id="pTagline" placeholder="e.g. Weather-resistant quiet luxury" />
+        </label>
+      </div>
+
+      <label>
+        Description & Performance Story
+        <textarea id="pDesc" rows="3" placeholder="Engineered stretch fabric cut for heat, speed, and endurance. Gold piping traces the contours..."></textarea>
+      </label>
+
+      <!-- Image Upload Dropzone & Live Preview -->
+      <div class="media-upload-section">
+        <span class="form-label">Piece Photography *</span>
+        <div class="upload-split">
+          <div class="dropzone" id="dropZone">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <p>Drag & drop image file or <span class="gold" style="text-decoration:underline;cursor:pointer;">browse</span></p>
+            <span class="subtle" style="font-size:.7rem;">PNG, JPG, WebP supported</span>
+            <input type="file" id="pieceImgFile" accept="image/*" style="display:none;" />
+          </div>
+          <div class="img-preview-box" id="imgPreviewBox">
+            <img id="imgPreview" src="../public/images/logo-runners.png" alt="Preview" />
+            <span class="subtle" id="previewLabel" style="font-size:.65rem;text-align:center;">Default Preview</span>
+          </div>
+        </div>
+
+        <div class="preset-strip">
+          <span class="subtle" style="font-size:.72rem;">Or choose studio preset:</span>
+          <div class="preset-buttons">
+            <button type="button" class="preset-btn active" data-preset="tee-front.jpg">Tee Studio</button>
+            <button type="button" class="preset-btn" data-preset="shorts-front.jpg">Shorts Studio</button>
+            <button type="button" class="preset-btn" data-preset="lifestyle-tee.jpg">Tee Editorial</button>
+            <button type="button" class="preset-btn" data-preset="lifestyle-shorts.jpg">Shorts Editorial</button>
+            <button type="button" class="preset-btn" data-preset="lifestyle-cap.jpg">Cap Editorial</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row-2">
+        <label>
+          Colorway Name
+          <input type="text" id="pColorName" placeholder="e.g. Obsidian Gold" value="Eclipse" />
+        </label>
+        <label>
+          Color Swatch Hex
+          <div style="display:flex;gap:.6rem;align-items:center;">
+            <input type="color" id="pColorHex" value="#0c0c0c" style="width:3rem;height:2.6rem;padding:0;background:none;border:1px solid var(--line);cursor:pointer;" />
+            <input type="text" id="pColorHexText" value="#0c0c0c" style="flex:1;" />
+          </div>
+        </label>
+      </div>
+
+      <div>
+        <span class="form-label">Available Sizes</span>
+        <div class="sizes-checkbox-row">
+          <label><input type="checkbox" name="sizes" value="XS" /> XS</label>
+          <label><input type="checkbox" name="sizes" value="S" checked /> S</label>
+          <label><input type="checkbox" name="sizes" value="M" checked /> M</label>
+          <label><input type="checkbox" name="sizes" value="L" checked /> L</label>
+          <label><input type="checkbox" name="sizes" value="XL" checked /> XL</label>
+          <label><input type="checkbox" name="sizes" value="XXL" /> XXL</label>
+        </div>
+      </div>
+
+      <div class="form-row-2">
+        <label>
+          Fabric Details
+          <input type="text" id="pFabric" placeholder="e.g. 4-way stretch woven with dry-hand finish" />
+        </label>
+        <label>
+          Fit Guidance
+          <input type="text" id="pFit" placeholder="e.g. Athletic tailored. True to size." />
+        </label>
+      </div>
+
+      <div class="admin-modal-foot">
+        <button type="button" class="btn btn-ghost" id="cancelProductBtn"><span>Cancel</span></button>
+        <button type="submit" class="btn btn-gold" id="saveProductBtn"><span>Publish Piece ↗</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ══════════ ORDER PACKING SLIP MODAL ══════════ -->
+<div class="admin-modal" id="orderDetailModal" aria-hidden="true">
+  <div class="admin-modal-backdrop" id="closeDetailBackdrop"></div>
+  <div class="admin-modal-card order-slip-card" role="dialog" aria-modal="true" aria-label="Order Packing Slip">
+    <div class="admin-modal-head">
+      <div>
+        <h3 class="gold" id="slipOrderId">Order Details</h3>
+        <p class="subtle" id="slipDate" style="font-size:.75rem;margin-top:.2rem;"></p>
+      </div>
+      <div style="display:flex;gap:.6rem;align-items:center;">
+        <button class="btn btn-ghost btn-sm" id="printSlipBtn"><span>Print Slip 🖨️</span></button>
+        <button class="icon-btn" id="closeDetailBtn" aria-label="Close modal">✕</button>
+      </div>
+    </div>
+    <div class="slip-body" id="slipBody">
+      <!-- Rendered dynamically by admin.js -->
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PIECE PREVIEW MODAL ══════════ -->
+<div class="admin-modal" id="viewPieceModal" aria-hidden="true">
+  <div class="admin-modal-backdrop" id="closeViewPieceBackdrop"></div>
+  <div class="admin-modal-card piece-preview-card" role="dialog" aria-modal="true" aria-label="Piece Overview">
+    <div class="admin-modal-head">
+      <div>
+        <h3 class="gold" id="vpName">Piece Overview</h3>
+        <p class="subtle" id="vpCategory" style="font-size:.75rem;margin-top:.2rem;"></p>
+      </div>
+      <div style="display:flex;gap:.6rem;align-items:center;">
+        <a class="btn btn-gold btn-sm" id="vpStorefrontLink" href="#" target="_blank">
+          <span>Open on Storefront ↗</span>
+        </a>
+        <button class="icon-btn" id="closeViewPieceBtn" aria-label="Close modal">✕</button>
+      </div>
+    </div>
+    <div class="piece-preview-body" id="vpBody">
+      <!-- Rendered dynamically by admin.js -->
+    </div>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="./admin.js"></script>
+</body>
+</html>

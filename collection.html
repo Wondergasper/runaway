@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Collection 01 — RUNAWAY</title>
+<meta name="description" content="The RUNAWAY opening kit: compression, training shorts, skull cap. Black field, gold finish." />
+<meta name="theme-color" content="#070707" />
+<link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-mark">R</div>
+  <div class="loader-word">RUNAWAY</div>
+  <div class="loader-bar"><span></span></div>
+</div>
+<div class="aura" id="aura" aria-hidden="true"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <img src="./public/images/logo-runners.png" alt="" width="36" height="36" />
+      <span class="brand-word">RUNAWAY</span>
+    </a>
+    <nav class="desk-nav" aria-label="Primary">
+      <a href="collection.html" class="active">Collection</a>
+      <a href="index.html#craft">Craft</a>
+      <a href="index.html#lookbook">Lookbook</a>
+      <a href="about.html">The House</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="bagBtn" aria-label="Open bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M6 8h15l-1.5 9h-12z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="bag-count" id="bagCount" hidden>0</span>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="collection.html" class="active">Collection</a>
+    <a href="index.html#craft">Craft</a>
+    <a href="index.html#lookbook">Lookbook</a>
+    <a href="about.html">The House</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="bg"><img src="./public/images/lifestyle-shorts.jpg" alt="" /></div>
+    <div class="inner wrap">
+      <p class="eyebrow gold">Collection 01</p>
+      <h1>The kit</h1>
+      <p class="crumbs"><a href="index.html">Home</a> &nbsp;/&nbsp; <b>Collection</b></p>
+      <p class="muted small" style="margin-top:1rem">Three pieces. One language. Compression, shorts, and a skull cap.</p>
+    </div>
+  </section>
+
+  <section class="collection" style="border-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><h2 style="font-size:clamp(1.6rem,1.2rem + 2vw,2.4rem)">Shop all</h2></div>
+        <div class="filters" id="categoryChips" role="tablist" aria-label="Filter products">
+          <button class="chip is-active" data-filter="All" role="tab">All</button>
+        </div>
+      </div>
+
+      <div class="collection-toolbar">
+        <div class="collection-search-wrap">
+          <span class="collection-search-icon">🔍</span>
+          <input type="search" id="collectionSearch" placeholder="Search collection by piece name or category..." aria-label="Search collection" />
+        </div>
+        <div class="collection-sort-wrap">
+          <label for="collectionSort">Sort:</label>
+          <select id="collectionSort" class="collection-sort-select">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <div class="next-strip wrap">
+    <small>Next</small>
+    <a href="about.html">The House →</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="brand-mini gold">RUNAWAY</p>
+      <p class="muted small">Performance apparel for athleticism, leisure, and luxury. Cut in black. Finished in gold.</p>
+    </div>
+    <div><p class="foot-h">House</p><a href="about.html">The House</a><a href="collection.html">Collection</a></div>
+    <div><p class="foot-h">Kit</p><a href="products/aether-compression-tee.html">Aether Tee</a><a href="products/apex-training-shorts.html">Apex Shorts</a><a href="products/velocity-skull-cap.html">Velocity Cap</a></div>
+    <div><p class="foot-h">Care</p><span>Cold wash, hang dry</span><span>Ships in 2–4 days</span><span>Free returns, 30 days</span></div>
+  </div>
+  <div class="foot-base"><span>© <span id="year"></span> Runaway</span><a href="#track-order" data-action="track-order" class="muted" style="color:var(--gold);margin:0 .6rem;">Track Order 📦</a><a href="admin/login.html" class="muted" style="letter-spacing:.18em;text-transform:uppercase;">House Portal ↗</a><span>Athleticism · Leisure · Luxury</span></div>
+</footer>
+
+<div class="drawer-root" id="drawerRoot" aria-hidden="true">
+  <button class="drawer-veil" id="drawerVeil" aria-label="Close bag"></button>
+  <aside class="drawer" role="dialog" aria-label="Shopping bag">
+    <div class="drawer-drag-pill" aria-hidden="true"></div>
+    <div class="drawer-head"><p id="drawerTitle">Bag (0)</p><button class="icon-btn" id="drawerClose" aria-label="Close">✕</button></div>
+    <div class="drawer-body" id="drawerBody"></div>
+    <div class="drawer-foot" id="drawerFoot"></div>
+  </aside>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="./js/data.js"></script>
+<script src="./js/site.js"></script>
+<script>
+/* collection page: dynamic category chips, live search, sorting, and cards */
+"use strict";
+const grid = document.getElementById("productGrid");
+const categoryChipsWrap = document.getElementById("categoryChips");
+const searchInput = document.getElementById("collectionSearch");
+const sortSelect = document.getElementById("collectionSort");
+
+let activeFilter = "All";
+let searchQuery = "";
+let sortBy = "default";
+
+function resolveProductImage(p, idx = 0) {
+  if (p.images && p.images[idx]) {
+    const src = p.images[idx];
+    return (src.startsWith("data:") || src.startsWith("http")) ? src : IMG + src;
+  }
+  if (p.image) {
+    return (p.image.startsWith("data:") || p.image.startsWith("http")) ? p.image : IMG + p.image;
+  }
+  return IMG + "logo-runners.png";
+}
+
+function cardHTML(p) {
+  const mainImg = resolveProductImage(p, 0);
+  const fileLink = p.file || ("products/product.html?slug=" + encodeURIComponent(p.slug));
+  return `
+  <article class="card">
+    <a href="${fileLink}" style="display:block">
+      <div class="card-media">
+        <img src="${mainImg}" alt="${p.name}" loading="lazy" />
+        <span class="card-badge">${p.category}</span>
+      </div>
+      <div class="card-row">
+        <div><p class="card-cat">${p.tagline || ""}</p><h3 class="card-name">${p.name}</h3></div>
+        <p class="card-price">${money(p.price)}</p>
+      </div>
+    </a>
+    <div style="display:flex;gap:.5rem;margin-top:.8rem;">
+      <a href="${fileLink}" class="card-quick" style="position:static;opacity:1;transform:none;flex:1;text-align:center;display:grid;place-items:center;">View Piece →</a>
+      <button class="card-quick" data-add="${p.slug}" style="position:static;opacity:1;transform:none;flex:1;background:var(--gold);color:var(--ink);">Add to bag +</button>
+    </div>
+  </article>`;
+}
+
+function renderCategoryChips() {
+  if (!categoryChipsWrap) return;
+  const all = typeof getAllProducts === "function" ? getAllProducts() : PRODUCTS;
+  const distinctCats = ["All", ...new Set(all.map((p) => p.category).filter(Boolean))];
+  
+  categoryChipsWrap.innerHTML = distinctCats.map((cat) => `
+    <button class="chip ${cat === activeFilter ? 'is-active' : ''}" data-filter="${cat}" role="tab">${cat}</button>
+  `).join("");
+
+  categoryChipsWrap.querySelectorAll(".chip").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      if (chip.dataset.filter === activeFilter) return;
+      categoryChipsWrap.querySelectorAll(".chip").forEach((b) => b.classList.remove("is-active"));
+      chip.classList.add("is-active");
+      activeFilter = chip.dataset.filter;
+      renderGrid();
+    });
+  });
+}
+
+function renderGrid() {
+  const all = typeof getAllProducts === "function" ? getAllProducts() : PRODUCTS;
+  let list = all.filter((p) => {
+    const matchCat = activeFilter === "All" || p.category === activeFilter;
+    if (!matchCat) return false;
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      const matchName = (p.name || "").toLowerCase().includes(q);
+      const matchTag = (p.tagline || "").toLowerCase().includes(q);
+      const matchCatText = (p.category || "").toLowerCase().includes(q);
+      return matchName || matchTag || matchCatText;
+    }
+    return true;
+  });
+
+  // Sorting
+  if (sortBy === "price-asc") {
+    list.sort((a, b) => (a.price || 0) - (b.price || 0));
+  } else if (sortBy === "price-desc") {
+    list.sort((a, b) => (b.price || 0) - (a.price || 0));
+  } else if (sortBy === "name-asc") {
+    list.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+  }
+
+  if (list.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 1.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: 2px;">
+        <p class="muted">No performance pieces found matching your criteria${searchQuery ? ` for "${searchQuery}"` : ""}.</p>
+        <button class="btn btn-ghost btn-sm" id="resetColFilter" style="margin-top: 1rem;">
+          <span>Clear Search & Reset Filters</span>
+        </button>
+      </div>`;
+    document.getElementById("resetColFilter")?.addEventListener("click", () => {
+      activeFilter = "All";
+      searchQuery = "";
+      if (searchInput) searchInput.value = "";
+      renderCategoryChips();
+      renderGrid();
+    });
+    return;
+  }
+
+  grid.innerHTML = list.map(cardHTML).join("");
+  [...grid.children].forEach((c, i) => {
+    c.style.opacity = "0"; c.style.transform = "translateY(18px)";
+    setTimeout(() => { c.style.opacity = ""; c.style.transform = ""; }, 50 * i + 20);
+  });
+}
+
+// Live search listener
+searchInput?.addEventListener("input", (e) => {
+  searchQuery = e.target.value.trim();
+  renderGrid();
+});
+
+// Sort select listener
+sortSelect?.addEventListener("change", (e) => {
+  sortBy = e.target.value;
+  renderGrid();
+});
+
+// Initial render
+renderCategoryChips();
+renderGrid();
+
+/* one-tap add uses default first size/color */
+grid.addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-add]");
+  if (!btn) return;
+  const p = getProduct(btn.dataset.add);
+  if (!p) return;
+  const size = (p.sizes && p.sizes[0]) || "Standard";
+  const colorObj = (p.colors && p.colors[0]) || { id: "default", name: "Standard" };
+  const cartImg = resolveProductImage(p, 0);
+  Cart.add({ slug: p.slug, name: p.name, price: p.price, size, color: colorObj.id, colorName: colorObj.name, image: cartImg });
+  paintBag(); toast(`${p.name} — added to bag`); openDrawer();
+});
+</script>
+</body>
+</html>

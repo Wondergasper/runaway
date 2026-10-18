@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RUNAWAY — Athleticism · Leisure · Luxury</title>
+<meta name="description" content="RUNAWAY — luxury performance apparel. Cut in black. Finished in gold." />
+<meta name="theme-color" content="#070707" />
+<link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+
+<!-- ══════════ PRELOADER ══════════ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-mark">R</div>
+  <div class="loader-word">RUNAWAY</div>
+  <div class="loader-bar"><span></span></div>
+</div>
+
+<!-- cursor aura (desktop only, decorative) -->
+<div class="aura" id="aura" aria-hidden="true"></div>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="brand" href="#top" data-scroll>
+      <img src="./public/images/logo-runners.png" alt="" width="36" height="36" />
+      <span class="brand-word">RUNAWAY</span>
+    </a>
+    <nav class="desk-nav" aria-label="Primary">
+      <a href="collection.html">Collection</a>
+      <a href="#craft" data-scroll>Craft</a>
+      <a href="#lookbook" data-scroll>Lookbook</a>
+      <a href="about.html">The House</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="bagBtn" aria-label="Open bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M6 8h15l-1.5 9h-12z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="bag-count" id="bagCount" hidden>0</span>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="collection.html">Collection</a>
+    <a href="#craft" data-scroll>Craft</a>
+    <a href="#lookbook" data-scroll>Lookbook</a>
+    <a href="about.html">The House</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg">
+      <img src="./public/images/hero-run.jpg" alt="" />
+      <div class="hero-veil"></div>
+      <div class="hero-grain"></div>
+    </div>
+    <div class="hero-content stagger-in">
+      <img class="hero-mark" src="./public/images/logo-runners.png" alt="RUNAWAY dual runner mark" />
+      <p class="eyebrow">Collection 01 — Night Miles</p>
+      <h1 class="hero-title gold-foil">RUNAWAY</h1>
+      <p class="hero-sub">Athleticism&nbsp;&nbsp;·&nbsp;&nbsp;Leisure&nbsp;&nbsp;·&nbsp;&nbsp;Luxury</p>
+      <p class="hero-copy">Performance apparel for the ones who train in the dark hours. Cut in black. Finished in gold.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold magnetic" href="collection.html"><span>Shop the collection</span></a>
+        <a class="btn btn-ghost magnetic" href="about.html"><span>The house</span></a>
+      </div>
+    </div>
+    <div class="hero-foot">
+      <span class="scroll-hint"><i></i>Scroll</span>
+      <span class="hero-coord">5:47 AM — CITY LOOP</span>
+    </div>
+  </section>
+
+  <!-- ══════════ MARQUEE ══════════ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>Athleticism <b>/</b></span><span>Leisure <b>/</b></span><span>Luxury <b>/</b></span><span>Performance <b>/</b></span><span>Compression <b>/</b></span><span>Night Miles <b>/</b></span>
+    </div>
+  </div>
+
+  <!-- ══════════ STORY ══════════ -->
+  <section class="story wrap reveal">
+    <div class="story-text">
+      <p class="eyebrow gold">The kit</p>
+      <h2>Cut in black.<br />Finished in <em class="gold-foil">gold.</em></h2>
+      <p class="muted">RUNAWAY is a performance house. Compression, training shorts, and race accessories with one rule: the luxury is in the finish, never in the noise. Moisture-wicking. Four-way stretch. Gold where it earns its place.</p>
+      <div class="story-stats">
+        <div><strong data-count="3">0</strong><span>pieces, one language</span></div>
+        <div><strong data-count="18">0</strong><span>detail shots</span></div>
+        <div><strong data-count="4">0</strong><span>cap colorways</span></div>
+      </div>
+      <a class="btn btn-outline magnetic" href="about.html"><span>Read the story →</span></a>
+    </div>
+    <figure class="story-media tilt">
+      <img src="./public/images/lifestyle-tee.jpg" alt="Aether compression tee on body" loading="lazy" />
+      <figcaption><span>Aether Tee — worn at dawn</span><span>01</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- ══════════ COLLECTION ══════════ -->
+  <section class="collection" id="collection">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <p class="eyebrow gold">Collection 01</p>
+          <h2>The opening kit</h2>
+        </div>
+        <div class="filters" role="tablist" aria-label="Filter products">
+          <button class="chip is-active" data-filter="All" role="tab">All</button>
+          <button class="chip" data-filter="Tops" role="tab">Tops</button>
+          <button class="chip" data-filter="Bottoms" role="tab">Bottoms</button>
+          <button class="chip" data-filter="Accessories" role="tab">Accessories</button>
+        </div>
+      </div>
+      <div class="grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════ CRAFT BANNER ══════════ -->
+  <section class="craft" id="craft">
+    <img class="craft-bg" id="craftBg" src="./public/images/fabric-detail.jpg" alt="" loading="lazy" />
+    <div class="craft-veil"></div>
+    <div class="craft-inner reveal">
+      <p class="eyebrow gold">Craft</p>
+      <h2>Gold stitch. Black field.</h2>
+      <p class="muted">Raglan mobility. Flatlock seams. Silicone grip. Ventilated panels. Every millimetre is there to move — and to last. The dual runner is not a mascot. It is the house mark.</p>
+      <div class="craft-ticks">
+        <span>Raglan mobility</span><span>Flatlock seams</span><span>Silicone grip</span><span>Ventilated panels</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ LOOKBOOK ══════════ -->
+  <section class="lookbook wrap" id="lookbook">
+    <div class="sec-head reveal">
+      <div>
+        <p class="eyebrow gold">Lookbook</p>
+        <h2>Night miles</h2>
+      </div>
+      <p class="muted small">Hover to inspect the finish.</p>
+    </div>
+    <div class="mosaic reveal">
+      <figure class="tile tall"><img src="./public/images/lifestyle-tee.jpg" alt="Aether kit, studio" loading="lazy" /><figcaption>Aether kit</figcaption></figure>
+      <figure class="tile wide"><img src="./public/images/hero-run.jpg" alt="Night run" loading="lazy" /><figcaption>Night run</figcaption></figure>
+      <figure class="tile tall"><img src="./public/images/lifestyle-shorts.jpg" alt="Apex shorts" loading="lazy" /><figcaption>Apex shorts</figcaption></figure>
+      <figure class="tile wide"><img src="./public/images/fabric-detail.jpg" alt="Gold stitch on black knit" loading="lazy" /><figcaption>Gold stitch</figcaption></figure>
+      <figure class="tile"><img src="./public/images/lifestyle-cap.jpg" alt="Velocity cap" loading="lazy" /><figcaption>Velocity cap</figcaption></figure>
+      <figure class="tile tall"><img src="./public/images/tee-back.jpg" alt="Spine lockup" loading="lazy" /><figcaption>Spine lockup</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ══════════ PILLARS ══════════ -->
+  <section class="pillars">
+    <div class="wrap pillar-grid">
+      <article class="reveal"><h3>Athleticism</h3><p>Compression that holds through the interval. Seams that disappear at speed. Built for the work, not the pose.</p></article>
+      <article class="reveal" style="--d:.12s"><h3>Leisure</h3><p>The same kit you train in is the one you keep on. Soft hand. Quiet silhouette. No costume change required.</p></article>
+      <article class="reveal" style="--d:.24s"><h3>Luxury</h3><p>Gold is not decoration. It is the finish — piping, tips, the runner mark. Black field, one metal.</p></article>
+    </div>
+  </section>
+
+  <!-- ══════════ HOUSE / ABOUT ══════════ -->
+  <section class="house wrap" id="house">
+    <div class="house-media reveal tilt">
+      <img src="./public/images/logo-r-lockup.jpg" alt="RUNAWAY R monogram" loading="lazy" />
+    </div>
+    <div class="house-text reveal">
+      <p class="eyebrow gold">The house</p>
+      <h2>Two runners. One mark.</h2>
+      <p class="muted">Performance wear does not have to look like a billboard, and luxury does not have to sit on the couch. We design in black because it photographs at 5am. We finish in gold because the work deserves a metal, not a neon.</p>
+      <p class="muted">The dual runner is the house mark — two figures in motion, locked in a single stroke. The R monogram is the quiet twin, used where space is scarce.</p>
+      <div class="house-rows">
+        <div><h4>Materials</h4><p>Stretch knits, dry hand, ventilated mesh, silicone grip.</p></div>
+        <div><h4>Make</h4><p>Raglan seams, flatlock construction, gold piping set — not printed.</p></div>
+        <div><h4>Use</h4><p>Train. Travel. Cold wash, hang dry. The gold outlasts the season.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ NEWSLETTER ══════════ -->
+  <section class="join">
+    <div class="join-inner reveal">
+      <p class="brand-mini">RUNAWAY</p>
+      <h2>Join the list</h2>
+      <p class="muted">Drops, restocks, and night-run notes. No noise.</p>
+      <form id="joinForm" novalidate>
+        <input type="email" id="joinEmail" placeholder="Email" aria-label="Email" required />
+        <button class="btn btn-gold" type="submit"><span>Join</span></button>
+      </form>
+      <p class="join-msg" id="joinMsg" role="status"></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="brand-mini gold">RUNAWAY</p>
+      <p class="muted small">Performance apparel for athleticism, leisure, and luxury. Cut in black. Finished in gold.</p>
+    </div>
+    <div>
+      <p class="foot-h">House</p>
+      <a href="about.html">The House</a>
+      <a href="collection.html">Collection</a>
+    </div>
+    <div>
+      <p class="foot-h">Kit</p>
+      <a href="products/aether-compression-tee.html">Aether Tee</a>
+      <a href="products/apex-training-shorts.html">Apex Shorts</a>
+      <a href="products/velocity-skull-cap.html">Velocity Cap</a>
+    </div>
+    <div>
+      <p class="foot-h">Care</p>
+      <span>Cold wash, hang dry</span>
+      <span>Ships in 2–4 days</span>
+      <span>Free returns, 30 days</span>
+    </div>
+  </div>
+  <div class="foot-base"><span>© <span id="year"></span> Runaway</span><a href="#track-order" data-action="track-order" class="muted" style="color:var(--gold);margin:0 .6rem;">Track Order 📦</a><a href="admin/login.html" class="muted" style="letter-spacing:.18em;text-transform:uppercase;">House Portal ↗</a><span>Athleticism · Leisure · Luxury</span></div>
+</footer>
+
+<!-- ══════════ QUICKVIEW MODAL ══════════ -->
+<div class="modal" id="qvModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-qv></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Product quick view">
+    <button class="icon-btn modal-x" data-close-qv aria-label="Close">✕</button>
+    <div class="modal-media">
+      <img id="qvImg" src="" alt="" />
+      <div class="modal-thumbs" id="qvThumbs"></div>
+    </div>
+    <div class="modal-info">
+      <p class="eyebrow gold" id="qvCat"></p>
+      <h3 id="qvName"></h3>
+      <p class="muted small" id="qvTag"></p>
+      <p class="qv-price" id="qvPrice"></p>
+      <p class="muted small" id="qvDesc"></p>
+      <p class="opt-label">Color — <span id="qvColorName"></span></p>
+      <div class="swatches" id="qvColors"></div>
+      <p class="opt-label">Size</p>
+      <div class="sizes" id="qvSizes"></div>
+      <p class="qv-hint" id="qvHint"></p>
+      <button class="btn btn-gold block" id="qvAdd"><span>Add to bag</span></button>
+      <a class="linklike" id="qvFull" href="#" style="margin-top:.7rem;text-align:center">View full page →</a>
+      <p class="muted tiny" id="qvMeta"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ CART DRAWER ══════════ -->
+<div class="drawer-root" id="drawerRoot" aria-hidden="true">
+  <button class="drawer-veil" id="drawerVeil" aria-label="Close bag"></button>
+  <aside class="drawer" role="dialog" aria-label="Shopping bag">
+    <div class="drawer-drag-pill" aria-hidden="true"></div>
+    <div class="drawer-head">
+      <p id="drawerTitle">Bag (0)</p>
+      <button class="icon-btn" id="drawerClose" aria-label="Close">✕</button>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+    <div class="drawer-foot" id="drawerFoot"></div>
+  </aside>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="./js/data.js"></script>
+<script src="./js/site.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>
